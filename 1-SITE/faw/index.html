@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAW Trucks Turkmenistan</title>
+<meta name="description" content="FAW Trucks в Туркменистане: тягачи, самосвалы и грузовые шасси FAW Jiefang. Shanly Kerven, Ашхабад.">
+<style>
+/* Layout idea: Industrial Showroom — photo banner, dark band with road streaks, marquee, white bento catalog, dark contact desk. Tokens from DESIGN.md. */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --surface-alt:#E9EDF2; --surface-hover:#F8FAFC;
+  --surface-dark:#0B1424; --surface-dark-2:#111D31; --footer-bg:#060C17;
+  --border:#D5DCE5; --border-hover:#9FB0C6;
+  --text:#0F1828; --text-secondary:#4F5B6D; --text-tertiary:#7D8899;
+  --on-dark:#FFFFFF; --on-dark-secondary:#B9C4D4; --on-dark-tertiary:#8796AB;
+  --accent:#0A4EA8; --accent-hover:#083E86; --accent-active:#06326C; --accent-bright:#3D8BFF; --focus:#5AA0FF;
+  --bg-rgb:243,245,248; --dark-rgb:11,20,36; --on-dark-rgb:255,255,255; --accent-rgb:10,78,168; --accent-bright-rgb:61,139,255;
+  --success:#1E7A3C; --error:#B3261E; --warning:#B26A00;
+  --truck-fill:#FFFFFF; --truck-line:#1B2638; --truck-glass:#CFE0F5; --art-top:#F7F9FC; --art-bottom:#E4EAF2;
+  --font-display:"Oswald","Arial Narrow",Arial,sans-serif;
+  --font-body:"IBM Plex Sans","Segoe UI",Roboto,Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --radius:2px;
+  --shadow-1:0 1px 2px rgba(var(--dark-rgb),.06);
+  --shadow-2:0 10px 30px -12px rgba(var(--dark-rgb),.28);
+  --wrap:1200px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--font-body);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+/* Progress */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:40;pointer-events:none}
+
+/* Top bar */
+.topbar{background:var(--surface-dark);color:var(--on-dark-secondary);font-size:13px}
+.topbar .wrap{display:flex;align-items:center;gap:20px;min-height:36px}
+.topbar a{color:var(--on-dark);text-decoration:none;font-weight:500}
+.topbar a:hover{color:var(--accent-bright)}
+.topbar .tb-addr{display:flex;align-items:center;gap:8px;margin-right:auto}
+.topbar .tb-phones{display:flex;gap:16px}
+.topbar svg{width:14px;height:14px;flex:none}
+
+/* Header */
+.header{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow-1);transition:box-shadow .25s}
+.header .wrap{display:flex;align-items:center;gap:24px;height:68px;transition:height .25s}
+.header.scrolled{box-shadow:var(--shadow-2)}
+.header.scrolled .wrap{height:60px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:44px;width:auto}
+
+.logo-mark{font:700 22px/1.2 var(--font-display);letter-spacing:.06em;background:var(--accent);color:var(--on-dark);padding:4px 10px;border-radius:var(--radius)}
+.logo-text{display:flex;flex-direction:column;line-height:1.15;font-weight:600;font-size:15px}
+.logo-text small{font-weight:400;font-size:12px;color:var(--text-tertiary)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{white-space:nowrap;text-decoration:none;font-weight:500;font-size:15px;color:var(--text);padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.nav a:hover{border-bottom-color:var(--accent)}
+.langs{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.langs button{font:600 12px/1 var(--font-body);background:none;border:0;min-width:40px;min-height:36px;cursor:pointer;color:var(--text-secondary);transition:background-color .2s,color .2s}
+.langs button:hover{background:var(--surface-alt)}
+.langs button[aria-pressed="true"]{background:var(--text);color:var(--on-dark)}
+.menu-btn{display:none;align-items:center;justify-content:center;flex-direction:column;gap:4px;background:none;border:1px solid var(--border);border-radius:var(--radius);width:44px;height:44px;cursor:pointer;padding:0}
+.menu-btn:hover{border-color:var(--border-hover)}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--text)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;font:600 15px/1 var(--font-body);letter-spacing:.02em;border-radius:var(--radius);border:2px solid transparent;cursor:pointer;text-decoration:none;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
+.btn-primary{background:var(--accent);color:var(--on-dark)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-primary:active{background:var(--accent-active);transform:translateY(1px)}
+.btn:disabled{background:var(--border);color:var(--text-tertiary);cursor:not-allowed}
+.btn-ghost{border-color:rgba(var(--on-dark-rgb),.35);color:var(--on-dark);background:transparent}
+.btn-ghost:hover{border-color:var(--on-dark);background:rgba(var(--on-dark-rgb),.06)}
+.btn-ghost:active{background:rgba(var(--on-dark-rgb),.12)}
+.btn-outline{border-color:var(--accent);color:var(--accent);background:transparent;min-height:44px;padding:0 18px;font-size:14px}
+.btn-outline:hover{background:var(--accent);color:var(--on-dark)}
+.btn-outline:active{background:var(--accent-active);border-color:var(--accent-active)}
+.btn svg{width:16px;height:16px}
+.magnet{will-change:transform}
+
+/* Slider */
+.slider{position:relative;background:var(--surface-dark-2)}
+.slides{position:relative;width:100%;max-width:1600px;margin:0 auto;aspect-ratio:2.04/1;overflow:hidden}
+.slides-inner{position:absolute;inset:0;will-change:transform}
+.slide{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s}
+.slide.is-active{opacity:1;visibility:visible}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide.is-active img{animation:kb 7s ease-out both}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
+.sl-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(var(--dark-rgb),.55);color:var(--on-dark);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background-color .2s;z-index:2}
+.sl-btn:hover{background:rgba(var(--dark-rgb),.85)}
+.sl-btn:active{background:rgba(var(--dark-rgb),.95)}
+.sl-btn svg{width:20px;height:20px}
+.sl-btn.prev{left:16px}.sl-btn.next{right:16px}
+.dots{position:absolute;left:0;right:0;bottom:6px;display:flex;justify-content:center;z-index:2}
+.dots button{width:44px;height:28px;border:0;background:none;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.dots button::after{content:"";width:30px;height:4px;border-radius:var(--radius);background:rgba(var(--on-dark-rgb),.45);transition:background-color .2s}
+.dots button:hover::after{background:rgba(var(--on-dark-rgb),.75)}
+.dots button[aria-current="true"]::after{background:var(--on-dark)}
+
+/* Hero band */
+.hero{position:relative;background:var(--surface-dark);color:var(--on-dark);overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(900px 400px at 85% 120%,rgba(var(--accent-bright-rgb),.22),transparent 70%)}
+#roads{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero-band{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:end;padding-top:64px;padding-bottom:60px}
+.eyebrow{font:600 13px/1 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright);margin-bottom:18px;min-height:1em}
+.eyebrow.light{color:var(--accent)}
+.bar{display:block;width:48px;height:3px;background:var(--accent);margin-bottom:16px}
+.hero h1{overflow-wrap:break-word;hyphens:auto;font-size:clamp(32px,6vw,76px);font-weight:700;line-height:1.02;letter-spacing:.005em;text-transform:uppercase}
+.hero p.lead{margin-top:20px;font-size:18px;color:var(--on-dark-secondary);max-width:52ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(var(--on-dark-rgb),.14)}
+.stat{padding:22px 20px 4px 0}
+.stat + .stat{padding-left:20px;border-left:1px solid rgba(var(--on-dark-rgb),.14)}
+.stat b{display:block;font:600 44px/1 var(--font-display);font-variant-numeric:tabular-nums;color:var(--on-dark)}
+.stat span{display:block;margin-top:10px;font-size:14px;line-height:1.45;color:var(--on-dark-tertiary)}
+
+/* Split text */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.split .w>span{display:inline-block;transform:translateY(105%);transition:transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 50ms)}
+.split.in .w>span{transform:none}
+
+/* Marquee */
+.marquee{background:var(--surface-dark-2);border-top:1px solid rgba(var(--on-dark-rgb),.08);overflow:hidden;padding:22px 0}
+.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;align-items:center;gap:40px;padding-right:40px;font:700 clamp(40px,6vw,84px)/1 var(--font-display);text-transform:uppercase;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(var(--on-dark-rgb),.38)}
+.marquee-group i{font-style:normal;color:var(--accent-bright);-webkit-text-stroke:0;font-size:.5em}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:88px 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px;margin-bottom:32px}
+.sec-head h2,.about h2,.contact h2{font-size:clamp(32px,4vw,48px);font-weight:600;line-height:1.05;letter-spacing:.01em;text-transform:uppercase}
+.sec-head p{color:var(--text-secondary);max-width:60ch;font-size:15px;margin-top:12px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:500 14px/1 var(--font-body);background:var(--surface);border:1px solid var(--border);color:var(--text);min-height:44px;padding:0 16px;border-radius:var(--radius);cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
+.filters button:hover{border-color:var(--border-hover)}
+.filters button[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:var(--on-dark)}
+
+/* Bento catalog */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s,opacity .7s ease;transition-delay:0s,0s,0s,var(--d,0s)}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(var(--accent-rgb),.10),transparent 60%)}
+.card:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.card:hover::before{opacity:1}
+.card:focus-within{border-color:var(--accent)}
+.card[hidden]{display:none}
+.card-art{background:linear-gradient(180deg,var(--art-top),var(--art-bottom));padding:24px 18px 10px;border-bottom:1px solid var(--border)}
+.card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1;position:relative;z-index:2}
+.tag{font:600 12px/1.3 var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.card h3{font-size:30px;font-weight:600;line-height:1.05;letter-spacing:.01em}
+.card p{color:var(--text-secondary);font-size:15px}
+.specs{margin:0;display:grid;border-top:1px solid var(--border)}
+.specs div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px}
+.specs dt{color:var(--text-tertiary)}
+.specs dd{margin:0;font:500 13px/1.4 var(--font-mono);text-align:right;font-variant-numeric:tabular-nums;color:var(--text)}
+.card-actions{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+.card h3 a{color:inherit;text-decoration:none;transition:color .2s}
+.card h3 a:hover{color:var(--accent)}
+a.card-art{display:block}
+.link-btn{background:none;border:0;padding:0;min-height:44px;font:600 14px/1 var(--font-body);color:var(--accent);cursor:pointer;background-image:linear-gradient(currentColor,currentColor);background-position:0 70%;background-size:0 1px;background-repeat:no-repeat;transition:background-size .25s}
+.link-btn:hover{background-size:100% 1px}
+.link-btn:active{color:var(--accent-active)}
+.card-art.has-photo{padding:0}
+.card-art.has-photo img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .card-art.has-photo img{transform:scale(1.03)}
+.card.wide.photo{display:flex}
+.card.wide.photo .card-art{border-right:0;border-bottom:1px solid var(--border);padding:0;display:block}
+.card.wide.photo .card-art img{aspect-ratio:2/1;object-position:50% 50%}
+.card.wide.photo .card-body{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-content:start}
+.card.wide.photo .card-body>.tag,.card.wide.photo .card-body>h3,.card.wide.photo .card-body>p{grid-column:1}
+.card.wide.photo .specs{grid-column:2;grid-row:1 / span 4;align-self:start}
+.card.wide.photo .card-actions{grid-column:1}
+.card.wide{grid-column:span 2;display:grid;grid-template-columns:1.1fr 1fr}
+.card.wide .card-art{border-bottom:0;border-right:1px solid var(--border);display:flex;align-items:center;padding:28px}
+.card.wide h3{font-size:44px}
+.card.wide .card-art .truck{width:100%;height:auto}
+
+/* Truck drawings */
+.truck .t-body{fill:var(--truck-fill);stroke:var(--truck-line);stroke-width:2;stroke-linejoin:round}
+.truck .t-glass{fill:var(--truck-glass);stroke:var(--truck-line);stroke-width:1.5}
+.truck .t-accent{fill:var(--accent)}
+.truck .t-dark{fill:var(--truck-line)}
+.truck .t-hub{fill:var(--truck-fill)}
+.truck .t-spoke{stroke:var(--truck-line);stroke-width:2}
+.truck .t-line{fill:none;stroke:var(--truck-line);stroke-width:1.5}
+.truck .t-ground{stroke:var(--border);stroke-width:2}
+.t-wheel{transform-box:fill-box;transform-origin:center}
+.card:hover .t-wheel{animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Product page */
+.product{padding:36px 0 88px}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--text-tertiary);margin-bottom:24px}
+.crumbs a{color:var(--text-secondary);text-decoration:none;min-height:24px}
+.crumbs a:hover{color:var(--accent)}
+.p-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:start}
+.p-img{margin:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,var(--art-top),var(--art-bottom))}
+.p-img img{width:100%;height:auto}
+.p-thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.p-thumbs button{width:132px;padding:0;border:2px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;background:var(--surface);transition:border-color .2s}
+.p-thumbs button:hover{border-color:var(--border-hover)}
+.p-thumbs button[aria-pressed="true"]{border-color:var(--accent)}
+.p-thumbs img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.p-img .truck{padding:32px}
+.p-info h1{font:700 clamp(44px,5vw,72px)/1 var(--font-display);text-transform:uppercase;letter-spacing:.005em;margin:10px 0 16px}
+.p-info .lead{color:var(--text-secondary);font-size:17px;max-width:52ch}
+.p-info .specs{margin-top:24px}
+.p-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.p-note{font-size:13px;color:var(--text-tertiary);margin-top:14px}
+.p-sec{margin-top:72px}
+.p-sec h2{font:600 clamp(28px,3vw,38px)/1.05 var(--font-display);text-transform:uppercase;letter-spacing:.01em}
+.uses{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);margin-top:24px}
+.use{padding:26px 24px;display:flex;gap:14px;align-items:baseline}
+.use + .use{border-left:1px solid var(--border)}
+.use b{font:500 14px/1 var(--font-mono);color:var(--accent)}
+.use span{font-weight:500;font-size:17px}
+.others{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.mini{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s}
+.mini:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.mini:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.mini img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.mini .truck{padding:16px;background:linear-gradient(180deg,var(--art-top),var(--art-bottom))}
+.mini div{padding:16px 18px 20px;display:grid;gap:6px}
+.mini h3{font:600 26px/1.05 var(--font-display)}
+
+/* Special equipment */
+.special{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.sp-tile{display:flex;flex-direction:column;text-align:left;padding:0;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);overflow:hidden;cursor:pointer;font:inherit;color:var(--text);transition:border-color .25s,transform .25s,box-shadow .25s}
+.sp-tile:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.sp-tile:active{transform:translateY(-1px)}
+.sp-tile img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--surface-alt)}
+.sp-tile span{padding:12px 14px 14px;font-weight:600;font-size:14px;line-height:1.3}
+.sp-tile small{display:block;font-weight:500;font-size:12px;color:var(--accent);margin-top:4px}
+
+/* Featured JH6 */
+.feature{padding-top:0}
+.feature-img{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--surface-dark)}
+.feature-img img{width:100%;height:auto;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.feature-img:hover img{transform:scale(1.02)}
+.feature-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:22px}
+.feature-bar h3{font-size:clamp(26px,2.8vw,34px);font-weight:600;line-height:1.1;text-transform:uppercase;margin-top:6px}
+.feature-bar p{color:var(--text-secondary);margin-top:6px}
+.feature-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Services */
+.services{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--radius)}
+.svc{padding:30px 26px;display:flex;flex-direction:column;gap:12px;transition:background-color .25s,opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:0s,var(--d,0s),var(--d,0s)}
+.svc:hover{background:var(--surface-hover)}
+.svc + .svc{border-left:1px solid var(--border)}
+.svc .ico{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:var(--radius);color:var(--accent);transition:background-color .25s,color .25s,border-color .25s}
+.svc:hover .ico{background:var(--accent);border-color:var(--accent);color:var(--on-dark)}
+.svc .ico svg{width:22px;height:22px}
+.svc h3{font-size:22px;font-weight:600;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
+.svc p{color:var(--text-secondary);font-size:15px}
+
+/* About */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about-text{display:grid;gap:16px;color:var(--text-secondary);font-size:17px;max-width:62ch}
+.facts{display:grid;border-top:2px solid var(--text)}
+.facts div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.facts b{font:600 22px/1.2 var(--font-display);font-variant-numeric:tabular-nums;color:var(--text)}
+.facts span{color:var(--text-secondary);font-size:15px}
+
+/* Contact */
+.contact{background:var(--surface-dark);color:var(--on-dark)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:56px}
+.contact .intro{color:var(--on-dark-secondary);margin-top:16px;max-width:46ch}
+.c-list{margin-top:34px;display:grid;gap:18px}
+.c-list div{display:grid;gap:2px}
+.c-list small{color:var(--on-dark-tertiary);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+.c-list span,.c-list a{font-size:18px;font-weight:500}
+.c-phones{display:grid;gap:4px}
+.c-social{display:flex;gap:18px;flex-wrap:wrap}
+.link{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
+.link:hover{background-size:100% 1px}
+.form{background:var(--surface);color:var(--text);border-radius:var(--radius);padding:30px;display:grid;gap:16px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px}
+.field label{font-size:13px;font-weight:600}
+.field input,.field select,.field textarea{font:400 15px/1.4 var(--font-body);border:1px solid var(--border);border-radius:var(--radius);padding:12px;min-height:48px;background:var(--surface-hover);color:var(--text);width:100%;transition:border-color .2s}
+.field textarea{min-height:100px;resize:vertical}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--border-hover)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+.field [aria-invalid="true"]{border-color:var(--error)}
+.field input:disabled{background:var(--surface-alt);color:var(--text-tertiary)}
+.form-note{font-size:13px;color:var(--text-tertiary)}
+.form-msg{font-size:14px;font-weight:500;min-height:1.4em}
+.form-msg.err{color:var(--error)}
+.form-msg.ok{color:var(--success)}
+
+/* Footer */
+.footer{background:var(--footer-bg);color:var(--on-dark-tertiary);font-size:14px;padding:40px 0 28px}
+.footer a{color:var(--on-dark-secondary);text-decoration:none}
+.footer a:hover{color:var(--on-dark)}
+.f-top{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(var(--on-dark-rgb),.1)}
+.f-top img{height:64px;width:auto;border-radius:var(--radius)}
+.f-dist{color:var(--on-dark-secondary);max-width:40ch}
+.f-contacts{display:grid;gap:4px;text-align:right}
+.f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:20px}
+
+/* Reveal */
+.rv{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.card.rv{transition:border-color .25s,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .25s,opacity .7s ease;transition-delay:0s,var(--d,0s),0s,var(--d,0s)}
+.rv-pending{opacity:0;transform:translateY(28px)}
+
+/* Responsive */
+@media (max-width:1080px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .sp-grid{grid-template-columns:repeat(3,1fr)}
+  .f-top{grid-template-columns:auto 1fr}
+  .f-contacts{grid-column:1 / -1;text-align:left}
+  .hero-band{grid-template-columns:1fr;gap:36px;align-items:start}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc:nth-child(3){border-left:0}
+  .svc:nth-child(n+3){border-top:1px solid var(--border)}
+  .about .wrap,.contact .wrap{grid-template-columns:1fr;gap:36px}
+  .p-grid{grid-template-columns:1fr;gap:28px}
+  .others{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:1180px){
+  .menu-btn{display:flex}
+  .langs{margin-left:auto}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);flex-direction:column;gap:0;padding:4px 24px 12px;border-bottom:1px solid var(--border);box-shadow:var(--shadow-2)}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;border-bottom:1px solid var(--border)}
+  .header .btn-primary{display:none}
+}
+@media (max-width:860px){
+  .topbar .tb-addr{display:none}
+  .topbar .wrap{justify-content:space-between}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  section{padding:56px 0}
+  .hero-band{padding-top:40px;padding-bottom:44px}
+  .bento{grid-template-columns:1fr}
+  .card.wide{grid-column:auto;grid-template-columns:1fr}
+  .card.wide .card-art{border-right:0;border-bottom:1px solid var(--border);padding:24px 18px 10px}
+  .card.wide h3{font-size:34px}
+  .card.wide.photo .card-body{grid-template-columns:1fr}
+  .card.wide.photo .specs{grid-column:1;grid-row:auto}
+  .stats{grid-template-columns:1fr}
+  .stat,.stat + .stat{padding:16px 0;border-left:0;border-top:1px solid rgba(var(--on-dark-rgb),.14)}
+  .stat:first-child{border-top:0}
+  .stat b{font-size:38px}
+  .svc-grid{grid-template-columns:1fr}
+  .svc + .svc{border-left:0;border-top:1px solid var(--border)}
+  .form{padding:20px}
+  .uses,.others{grid-template-columns:1fr}
+  .sp-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .topbar .tb-phones a:not(:first-child){display:none}
+  .f-top{grid-template-columns:1fr}
+  .p-thumbs button{width:96px}
+  .use + .use{border-left:0;border-top:1px solid var(--border)}
+  .form .row{grid-template-columns:1fr}
+  .logo-text small{display:none}
+  .logo img{height:32px}
+  .header .wrap{gap:12px}
+  .langs button{min-width:34px}
+  .hero h1{font-size:clamp(30px,8.6vw,44px)}
+  .facts div{grid-template-columns:110px 1fr}
+  .sl-btn{width:36px;height:36px}
+  .sl-btn.prev{left:8px}.sl-btn.next{right:8px}
+  .dots{bottom:0}
+  .marquee{padding:16px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .split .w>span{transform:none}
+  .rv-pending{opacity:1;transform:none}
+}
+</style>
+<style id="fonts">
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(fonts/oswald-cyrillic-600-normal.woff2) format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(fonts/oswald-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(fonts/oswald-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(fonts/oswald-cyrillic-700-normal.woff2) format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(fonts/oswald-latin-ext-700-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(fonts/oswald-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(fonts/ibm-plex-sans-cyrillic-400-normal.woff2) format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(fonts/ibm-plex-sans-latin-ext-400-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(fonts/ibm-plex-sans-latin-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(fonts/ibm-plex-sans-cyrillic-500-normal.woff2) format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(fonts/ibm-plex-sans-latin-ext-500-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(fonts/ibm-plex-sans-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(fonts/ibm-plex-sans-cyrillic-600-normal.woff2) format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(fonts/ibm-plex-sans-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(fonts/ibm-plex-sans-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(fonts/ibm-plex-mono-cyrillic-500-normal.woff2) format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(fonts/ibm-plex-mono-latin-ext-500-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="tb-addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span id="tbAddr"></span></span>
+    <span class="tb-phones" id="tbPhones"></span>
+  </div>
+</div>
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo.png" width="660" height="136" alt="FAW Trucks Türkmenistan"></a>
+    <nav class="nav" id="nav">
+      <a href="#models" data-i18n="nav_models">Модели</a>
+      <a href="#special" data-i18n="special">Спецтехника</a>
+      <a href="#services" data-i18n="nav_services">Услуги</a>
+      <a href="#about" data-i18n="nav_about">О компании</a>
+      <a href="#contact" data-i18n="nav_contact">Контакты</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="tm" aria-pressed="false">TM</button>
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<div id="home">
+  <section class="slider" aria-roledescription="carousel" aria-label="FAW Trucks" style="padding:0">
+    <div class="slides" id="slides">
+      <div class="slides-inner" id="slidesInner">
+        <figure class="slide is-active"><img src="img/hero0.jpg" width="1600" height="782" data-i18n-alt="alt0" alt="FAW Trucks Türkmenistan: ygtybarly ulag çözgütleri"></figure>
+        <figure class="slide"><img src="img/hero1.jpg" width="1600" height="782" loading="lazy" data-i18n-alt="alt1" alt="Тягачи FAW на трассе"></figure>
+        <figure class="slide"><img src="img/hero3.jpg" width="1443" height="720" loading="lazy" data-i18n-alt="alt3" alt="70 лет FAW"></figure>
+      </div>
+      <button class="sl-btn prev" id="slPrev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="sl-btn next" id="slNext" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <div class="dots" id="dots">
+        <button type="button" aria-label="Slide 1" aria-current="true"></button>
+        <button type="button" aria-label="Slide 2"></button>
+        <button type="button" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero" style="padding:0">
+    <canvas id="roads" aria-hidden="true"></canvas>
+    <div class="wrap hero-band">
+      <div>
+        <div class="eyebrow" data-i18n="hero_eyebrow" data-scramble>Официальный дистрибьютор в Туркменистане</div>
+        <h1 data-i18n="hero_title" data-split id="heroTitle">Грузовики FAW для работы в Туркменистане</h1>
+        <p class="lead" data-i18n="hero_sub">Тягачи, самосвалы и грузовые шасси FAW Jiefang. Подберём модель под ваш груз, маршрут и бюджет.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnet" href="#contact"><span data-i18n="cta_quote">Запросить цену</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#models" data-i18n="hero_btn_catalog">Смотреть модели</a>
+        </div>
+      </div>
+      <div class="stats" id="stats">
+        <div class="stat"><b data-count="70">70</b><span data-i18n="stat1">лет производства грузовиков Jiefang, с 1956 года</span></div>
+        <div class="stat"><b data-count="80" data-suffix="+">80+</b><span data-i18n="stat2">стран, куда экспортируется FAW</span></div>
+        <div class="stat"><b data-count="15">15</b><span data-i18n="stat3">моделей в линейке</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">JH6<i>●</i>J6P<i>●</i>Han V<i>●</i>New J7<i>●</i>Ying Hang<i>●</i>Ying Tu<i>●</i>J6V<i>●</i>JM6<i>●</i>VH<i>●</i>VN<i>●</i>Tiger VR<i>●</i>Tiger VN<i>●</i>Tiger VH<i>●</i>Tiger 6G<i>●</i>J6F<i>●</i></div>
+      <div class="marquee-group">JH6<i>●</i>J6P<i>●</i>Han V<i>●</i>New J7<i>●</i>Ying Hang<i>●</i>Ying Tu<i>●</i>J6V<i>●</i>JM6<i>●</i>VH<i>●</i>VN<i>●</i>Tiger VR<i>●</i>Tiger VN<i>●</i>Tiger VH<i>●</i>Tiger 6G<i>●</i>J6F<i>●</i></div>
+    </div>
+  </div>
+
+  <section id="models">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="bar"></span>
+          <div class="eyebrow light" data-i18n="eb_models" data-scramble>FAW Trucks · 15 моделей</div>
+          <h2 data-i18n="models_title" data-split>Модельный ряд</h2>
+          <p data-i18n="models_sub">Характеристики зависят от комплектации. Точные данные и наличие уточняйте у менеджера.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter">
+          <button type="button" data-filter="all" aria-pressed="true" data-i18n="f_all">Все</button>
+          <button type="button" data-filter="dump" aria-pressed="false" data-i18n="f_dump">Самосвалы</button>
+          <button type="button" data-filter="tractor" aria-pressed="false" data-i18n="f_tractor">Тягачи</button>
+          <button type="button" data-filter="light" aria-pressed="false" data-i18n="f_light">Лёгкие грузовики</button>
+        </div>
+      </div>
+      <div class="bento" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="special" id="special">
+    <div class="wrap">
+      <div class="sec-head rv"><div>
+        <span class="bar"></span>
+        <div class="eyebrow light" data-i18n="eb_special" data-scramble>На шасси FAW</div>
+        <h2 data-i18n="special" data-split>Спецтехника</h2>
+        <p data-i18n="special_sub">Надстройки под любую задачу. Нажмите на технику, чтобы запросить цену.</p>
+      </div></div>
+      <div class="sp-grid" id="specGrid"></div>
+    </div>
+  </section>
+
+  <section class="feature" id="featured">
+    <div class="wrap rv">
+      <figure class="feature-img"><img src="img/jh6.jpg" width="1600" height="900" loading="lazy" data-i18n-alt="alt4" alt="Самосвал FAW JH6 420 л.с."></figure>
+      <div class="feature-bar">
+        <div>
+          <span class="tag">FAW JH6 · 6x4</span>
+          <h3 data-i18n="feat_title">Самосвал JH6, 420 л.с.</h3>
+          <p data-i18n="feat_sub">Для стройки, карьеров и дорожных работ.</p>
+        </div>
+        <div class="feature-actions">
+          <a class="btn btn-outline" href="#model-jh6" data-i18n="details">Подробнее</a>
+          <button class="btn btn-primary magnet" type="button" data-model="JH6" data-i18n="card_btn">Узнать цену</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head rv"><div>
+        <span class="bar"></span>
+        <div class="eyebrow light" data-i18n="eb_services" data-scramble>Что мы делаем</div>
+        <h2 data-i18n="svc_title" data-split>Услуги</h2>
+      </div></div>
+      <div class="svc-grid">
+        <div class="svc rv" style="--d:0ms"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><h3 data-i18n="s1_t">Подбор модели</h3><p data-i18n="s1_d">Поможем выбрать колёсную формулу, мощность и надстройку под вашу задачу.</p></div>
+        <div class="svc rv" style="--d:80ms"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h11v10H2zM13 9h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><h3 data-i18n="s2_t">Поставка</h3><p data-i18n="s2_d">Организуем поставку техники и оформление документов.</p></div>
+        <div class="svc rv" style="--d:160ms"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5.3 5L3.5 17.2a1.8 1.8 0 0 0 2.5 2.5l5.7-5.7a4 4 0 0 0 5-5.3l-2.4 2.4-2.4-.6-.6-2.4z"/></svg></span><h3 data-i18n="s3_t">Сервис</h3><p data-i18n="s3_d">Техническое обслуживание и диагностика грузовиков FAW.</p></div>
+        <div class="svc rv" style="--d:240ms"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1M18.7 18.7l-2.1-2.1M7.4 7.4L5.3 5.3"/></svg></span><h3 data-i18n="s4_t">Запчасти</h3><p data-i18n="s4_d">Оригинальные запасные части FAW.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-text rv">
+        <span class="bar"></span>
+        <div class="eyebrow light" data-scramble>Shanly Kerven</div>
+        <h2 data-i18n="about_title" data-split>О компании</h2>
+        <p data-i18n="about_p1"></p>
+        <p data-i18n="about_p2"></p>
+      </div>
+      <div class="facts rv" style="--d:120ms">
+        <div><b>FAW Jiefang</b><span data-i18n="fact1">Производитель, Чанчунь, Китай</span></div>
+        <div><b>1956</b><span data-i18n="fact2">Начало выпуска грузовиков</span></div>
+        <div><b>80+</b><span data-i18n="fact3">Стран, куда поставляется техника FAW</span></div>
+        <div><b>Shanly Kerven</b><span data-i18n="fact4">Официальный дистрибьютор FAW Trucks в Туркменистане</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  <section class="product" id="product" hidden>
+    <div class="wrap" id="productInner"></div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="rv">
+        <div class="eyebrow" data-i18n="eb_contact" data-scramble>Ашхабад</div>
+        <h2 data-i18n="contact_title" data-split>Запросить цену</h2>
+        <p class="intro" data-i18n="contact_intro">Оставьте заявку: менеджер свяжется с вами, подберёт комплектацию и назовёт цену.</p>
+        <div class="c-list">
+          <div><small data-i18n="c_phone">Телефон</small><span class="c-phones" id="cPhones"></span></div>
+          <div><small data-i18n="c_addr">Адрес</small><span id="cAddr"></span></div>
+        </div>
+      </div>
+      <form class="form rv" style="--d:120ms" id="form" novalidate>
+        <div class="row">
+          <div class="field"><label for="fName" data-i18n="l_name">Имя</label><input id="fName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="fPhone" data-i18n="l_phone">Телефон</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="+993" required></div>
+        </div>
+        <div class="field"><label for="fModel" data-i18n="l_model">Модель</label><select id="fModel" name="model"></select></div>
+        <div class="field"><label for="fMsg" data-i18n="l_msg">Комментарий</label><textarea id="fMsg" name="msg" data-i18n-ph="ph_msg" placeholder="Количество, комплектация, сроки"></textarea></div>
+        <button class="btn btn-primary" type="submit" data-i18n="l_send">Отправить заявку по SMS</button>
+        <p class="form-note" data-i18n="l_note">Откроется SMS с текстом заявки. Или просто позвоните нам.</p>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-top">
+      <img src="img/shanly-kerven.png" width="362" height="283" alt="Shanly Kerven">
+      <p class="f-dist" data-i18n="fact4">Официальный дистрибьютор FAW Trucks в Туркменистане</p>
+      <div class="f-contacts" id="fContacts"></div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> Shanly Kerven</span>
+      <span data-i18n="footer_tm">FAW — товарный знак FAW Group.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== Edit contact details here ===== */
+const CONFIG = {
+  phones: ["+993 63 91-92-66", "+993 65 01-47-39", "+993 65 06-79-63"],
+  address: { tm: "Aşgabat ş., G. Kulyýew köçesi, «Nurly Gadam» binasy", ru: "г. Ашхабад, ул. Г. Кулыева, здание «Нурлы Гадам»", en: "Nurly Gadam building, G. Kulyyev street, Ashgabat" }
+};
+const telOf = p => p.replace(/[^\d+]/g, "");
+
+const T = {
+  logo_sub:{ru:"FAW Trucks в Туркменистане",tm:"Türkmenistanda FAW Trucks",en:"FAW Trucks in Turkmenistan"},
+  nav_models:{ru:"Модели",tm:"Modeller",en:"Models"},
+  nav_services:{ru:"Услуги",tm:"Hyzmatlar",en:"Services"},
+  nav_about:{ru:"О компании",tm:"Kompaniýa barada",en:"About"},
+  nav_contact:{ru:"Контакты",tm:"Habarlaşmak",en:"Contact"},
+  cta_quote:{ru:"Запросить цену",tm:"Bahasyny soramak",en:"Request a quote"},
+  hero_eyebrow:{ru:"Официальный дистрибьютор в Туркменистане",tm:"Türkmenistandaky resmi distribýutor",en:"Official distributor in Turkmenistan"},
+  hero_title:{ru:"Грузовики FAW для работы в Туркменистане",tm:"Türkmenistanda iş üçin FAW ýük awtoulaglary",en:"FAW trucks built for work in Turkmenistan"},
+  hero_sub:{ru:"Тягачи, самосвалы и грузовые шасси FAW Jiefang. Подберём модель под ваш груз, маршрут и бюджет.",tm:"FAW Jiefang çekijileri, öz-özünden düşürijileri we ýük şassileri. Ýüküňize, ugruňyza we býudjetiňize laýyk modeli saýlarys.",en:"FAW Jiefang tractors, dump trucks and cargo chassis. We match the model to your load, route and budget."},
+  hero_btn_catalog:{ru:"Смотреть модели",tm:"Modellere seretmek",en:"View models"},
+  stat1:{ru:"лет производства грузовиков Jiefang, с 1956 года",tm:"ýyl Jiefang ýük awtoulaglary öndürilýär, 1956-njy ýyldan bäri",en:"years of Jiefang trucks, since 1956"},
+  stat2:{ru:"стран, куда экспортируется FAW",tm:"FAW eksport edilýän ýurt",en:"countries FAW exports to"},
+  stat3:{ru:"моделей в каталоге",tm:"model katalogda",en:"models in the catalogue"},
+  eb_models:{ru:"FAW Trucks · 15 моделей",tm:"FAW Trucks · 15 model",en:"FAW Trucks · 15 models"},
+  eb_special:{ru:"На шасси FAW",tm:"FAW şassisinde",en:"On FAW chassis"},
+  special:{ru:"Спецтехника",tm:"Ýörite tehnika",en:"Special equipment"},
+  special_sub:{ru:"Надстройки под любую задачу. Нажмите на технику, чтобы запросить цену.",tm:"Islendik iş üçin üstqurmalar. Bahasyny soramak üçin tehnika basyň.",en:"Bodies for any job. Tap a vehicle to request a price."},
+  c_social:{ru:"Соцсети",tm:"Sosial ulgamlar",en:"Social media"},
+  f_dump:{ru:"Самосвалы",tm:"Öz-özünden düşürijiler",en:"Dump trucks"},
+  sp_type:{ru:"Тип",tm:"Görnüşi",en:"Type"},
+  sp_specs:{ru:"Характеристики",tm:"Häsiýetnamalary",en:"Specifications"},
+  eb_services:{ru:"Что мы делаем",tm:"Näme edýäris",en:"What we do"},
+  eb_contact:{ru:"Ашхабад",tm:"Aşgabat",en:"Ashgabat"},
+  models_title:{ru:"Модельный ряд",tm:"Model hatary",en:"Model range"},
+  models_sub:{ru:"Характеристики зависят от комплектации. Точные данные и наличие уточняйте у менеджера.",tm:"Häsiýetnamalar toplumlaýyna bagly. Takyk maglumatlary we barlygyny menejerden soraň.",en:"Specs depend on configuration. Ask a manager for exact data and availability."},
+  f_all:{ru:"Все",tm:"Hemmesi",en:"All"},
+  f_tractor:{ru:"Тягачи",tm:"Çekijiler",en:"Tractors"},
+  f_heavy:{ru:"Самосвалы и бортовые",tm:"Öz-özünden düşüriji we bortly",en:"Dump & cargo"},
+  f_light:{ru:"Лёгкие грузовики",tm:"Ýeňil ýük awtoulaglary",en:"Light trucks"},
+  card_btn:{ru:"Узнать цену",tm:"Bahasyny bilmek",en:"Get a price"},
+  svc_title:{ru:"Услуги",tm:"Hyzmatlar",en:"Services"},
+  s1_t:{ru:"Подбор модели",tm:"Model saýlamak",en:"Model selection"},
+  s1_d:{ru:"Поможем выбрать колёсную формулу, мощность и надстройку под вашу задачу.",tm:"Işiňize laýyk tigir formulasyny, kuwwatyny we üstqurmasyny saýlamaga kömek ederis.",en:"We help you choose the axle configuration, power and body for your job."},
+  s2_t:{ru:"Поставка",tm:"Getirip bermek",en:"Supply"},
+  s2_d:{ru:"Организуем поставку техники и оформление документов.",tm:"Tehnikanyň getirilmegini we resminamalaryň resmileşdirilmegini guraýarys.",en:"We arrange vehicle delivery and paperwork."},
+  s3_t:{ru:"Сервис",tm:"Tehniki hyzmat",en:"Service"},
+  s3_d:{ru:"Техническое обслуживание и диагностика грузовиков FAW.",tm:"FAW ýük awtoulaglaryna tehniki hyzmat we diagnostika.",en:"Maintenance and diagnostics for FAW trucks."},
+  s4_t:{ru:"Запчасти",tm:"Ätiýaçlyk şaýlary",en:"Parts"},
+  s4_d:{ru:"Оригинальные запасные части FAW.",tm:"FAW-yň asyl ätiýaçlyk şaýlary.",en:"Genuine FAW spare parts."},
+  about_title:{ru:"О компании",tm:"Kompaniýa barada",en:"About us"},
+  about_p1:{ru:"Shanly Kerven — официальный дистрибьютор FAW Trucks в Туркменистане: грузовики, самосвалы, тягачи и спецтехника FAW.",tm:"Shanly Kerven — Türkmenistanda FAW Trucks-yň resmi distribýutory: FAW ýük awtoulaglary, öz-özünden düşürijiler, çekijiler we ýörite tehnika.",en:"Shanly Kerven is the official distributor of FAW Trucks in Turkmenistan: FAW trucks, dump trucks, tractor units and special equipment."},
+  about_p2:{ru:"FAW развивается более 73 лет. В группу входят собственные бренды Hongqi, FAW Trucks и Bestune, а также совместные предприятия с Volkswagen, Audi, Toyota и Jetta. Первый грузовик Jiefang сошёл с конвейера в 1956 году.",tm:"FAW 73 ýyldan gowrak wagt bäri ösýär. Topara Hongqi, FAW Trucks we Bestune ýaly öz brendleri hem-de Volkswagen, Audi, Toyota we Jetta bilen bilelikdäki kärhanalar girýär. Ilkinji Jiefang ýük awtoulagy 1956-njy ýylda öndürildi.",en:"FAW has been developing for over 73 years. The group includes its own brands Hongqi, FAW Trucks and Bestune, plus joint ventures with Volkswagen, Audi, Toyota and Jetta. The first Jiefang truck rolled off the line in 1956."},
+  fact1:{ru:"Производитель, Чанчунь, Китай",tm:"Öndüriji, Çançun, Hytaý",en:"Manufacturer, Changchun, China"},
+  fact2:{ru:"Начало выпуска грузовиков",tm:"Ýük awtoulaglarynyň öndürilip başlanmagy",en:"Truck production began"},
+  fact3:{ru:"Стран, куда поставляется техника FAW",tm:"FAW tehnikasy iberilýän ýurt",en:"Countries FAW trucks are exported to"},
+  fact4:{ru:"Официальный дистрибьютор FAW Trucks в Туркменистане",tm:"Türkmenistanda FAW Trucks-yň resmi distribýutory",en:"Official FAW Trucks distributor in Turkmenistan"},
+  contact_title:{ru:"Запросить цену",tm:"Bahasyny soramak",en:"Request a quote"},
+  contact_intro:{ru:"Оставьте заявку: менеджер свяжется с вами, подберёт комплектацию и назовёт цену.",tm:"Arza goýuň: menejer siziň bilen habarlaşar, toplumlaýyny saýlar we bahasyny aýdar.",en:"Send a request and a manager will contact you, suggest a configuration and quote a price."},
+  c_phone:{ru:"Телефон",tm:"Telefon",en:"Phone"},
+  c_addr:{ru:"Адрес",tm:"Salgy",en:"Address"},
+  l_name:{ru:"Имя",tm:"Adyňyz",en:"Name"},
+  l_phone:{ru:"Телефон",tm:"Telefon",en:"Phone"},
+  l_model:{ru:"Модель",tm:"Model",en:"Model"},
+  l_msg:{ru:"Комментарий",tm:"Bellik",en:"Comment"},
+  ph_msg:{ru:"Количество, комплектация, сроки",tm:"Sany, toplumlaýyny, möhleti",en:"Quantity, configuration, timing"},
+  l_send:{ru:"Отправить заявку по SMS",tm:"Arzany SMS bilen ibermek",en:"Send request by SMS"},
+  l_note:{ru:"Откроется SMS с текстом заявки. Или просто позвоните нам.",tm:"SMS arzaňyzyň teksti bilen açylar. Ýa-da bize jaň ediň.",en:"An SMS opens with your request filled in. Or just call us."},
+  other:{ru:"Другое / не знаю",tm:"Başga / bilemok",en:"Other / not sure"},
+  err:{ru:"Укажите имя и телефон.",tm:"Adyňyzy we telefonyňyzy ýazyň.",en:"Please enter your name and phone."},
+  ok:{ru:"Открываем SMS… Если не открылось, позвоните нам:",tm:"SMS açylýar… Açylmasa, bize jaň ediň:",en:"Opening SMS… If nothing opens, call us:"},
+  wa_head:{ru:"Заявка с сайта FAW TM",tm:"FAW TM saýtyndan arza",en:"Request from FAW TM website"},
+  footer_tm:{ru:"FAW — товарный знак FAW Group.",tm:"FAW — FAW Group-yň söwda belgisi.",en:"FAW is a trademark of FAW Group."},
+  feat_title:{ru:"Самосвал JH6, 420 л.с.",tm:"JH6 öz-özünden düşüriji, 420 a.g.",en:"JH6 dump truck, 420 hp"},
+  feat_sub:{ru:"Для стройки, карьеров и дорожных работ.",tm:"Gurluşyk, karýer we ýol işleri üçin.",en:"For construction, quarries and roadworks."},
+  alt0:{ru:"FAW Trucks Туркменистан: надёжные транспортные решения, тягачи Ying Tu и V7 на трассе",tm:"FAW Trucks Türkmenistan: Türkmenistan üçin ygtybarly ulag çözgütleri, ýolda Ying Tu we V7 çekijileri",en:"FAW Trucks Turkmenistan: reliable transport solutions, Ying Tu and V7 tractors on the road"},
+  alt1:{ru:"Тягачи FAW на трассе",tm:"Ýolda FAW çekijileri",en:"FAW tractor units on the highway"},
+  alt2:{ru:"Лёгкие грузовики FAW в Ашхабаде",tm:"Aşgabatda FAW ýeňil ýük awtoulaglary",en:"FAW light trucks in Ashgabat"},
+  alt3:{ru:"70 лет FAW: от первого грузовика 1956 года до тягача 2026 года",tm:"FAW-yň 70 ýyly: 1956-njy ýylyň ilkinji ýük awtoulagyndan 2026-njy ýylyň çekijisine çenli",en:"70 years of FAW: from the first 1956 truck to a 2026 tractor unit"},
+  alt4:{ru:"Самосвал FAW JH6 420 л.с. с прицепом на трассе в Туркменистане",tm:"Türkmenistanda ýolda tirkegli FAW JH6 420 a.g. öz-özünden düşüriji",en:"FAW JH6 420 hp dump truck with trailer on a Turkmenistan highway"},
+  details:{ru:"Подробнее",tm:"Giňişleýin",en:"Details"},
+  crumb_home:{ru:"Главная",tm:"Baş sahypa",en:"Home"},
+  p_uses:{ru:"Применение",tm:"Ulanylyşy",en:"Applications"},
+  p_others:{ru:"Другие модели",tm:"Beýleki modeller",en:"Other models"},
+  call:{ru:"Позвонить",tm:"Jaň etmek",en:"Call"},
+  sp_versions:{ru:"Исполнения",tm:"Görnüşleri",en:"Versions"},
+  sp_cab:{ru:"Кабина",tm:"Kabina",en:"Cab"},
+  sp_engine:{ru:"Двигатель",tm:"Hereketlendiriji",en:"Engine"},
+  sp_power:{ru:"Мощность",tm:"Kuwwaty",en:"Power"},
+  sp_drive:{ru:"Колёсная формула",tm:"Tigir formulasy",en:"Axle config"},
+  sp_class:{ru:"Класс",tm:"Synpy",en:"Class"},
+  sp_gvw:{ru:"Полная масса",tm:"Doly agramy",en:"GVW"},
+  sp_body:{ru:"Надстройки",tm:"Üstqurmalar",en:"Bodies"},
+  hp:{ru:"л.с.",tm:"a.g.",en:"hp"},
+  t:{ru:"т",tm:"t",en:"t"},
+  l:{ru:"л",tm:"l",en:"L"},
+  onreq:{ru:"по запросу",tm:"soralanda",en:"on request"}
+};
+
+/* Catalogue lineup (from the Shanly Kerven / FAW Trucks Turkmenistan catalogue, 27.10.2026) */
+const TYPES = {
+  dump: {
+    tag:{ru:"Самосвал",tm:"Öz-özünden düşüriji",en:"Dump truck"},
+    desc:{ru:"Для карьеров, стройки и сыпучих грузов.",tm:"Karýerler, gurluşyk we dökülýän ýükler üçin.",en:"For quarries, construction and bulk cargo."},
+    about:{ru:"Самосвал FAW для карьеров, строительства и перевозки сыпучих грузов.",tm:"Karýerler, gurluşyk we dökülýän ýükleri daşamak üçin FAW öz-özünden düşürijisi.",en:"A FAW dump truck for quarries, construction and bulk cargo."},
+    uses:{ru:["Карьеры","Строительство","Сыпучие грузы"],tm:["Karýerler","Gurluşyk","Dökülýän ýükler"],en:["Quarries","Construction","Bulk cargo"]}},
+  tractor: {
+    tag:{ru:"Седельный тягач",tm:"Çekiji",en:"Tractor unit"},
+    desc:{ru:"Для магистральных и региональных перевозок.",tm:"Magistral we sebitleýin daşamalar üçin.",en:"For highway and regional haulage."},
+    about:{ru:"Седельный тягач FAW для магистральных и региональных перевозок с полуприцепами.",tm:"Ýarym tirkegler bilen magistral we sebitleýin daşamalar üçin FAW çekijisi.",en:"A FAW tractor unit for highway and regional haulage with semi-trailers."},
+    uses:{ru:["Магистральные перевозки","Международные рейсы","Работа с полуприцепами"],tm:["Magistral daşamalar","Halkara gatnawlar","Ýarym tirkegler bilen iş"],en:["Highway haulage","International routes","Semi-trailer work"]}},
+  light: {
+    tag:{ru:"Бортовой грузовик",tm:"Bortly ýük awtoulagy",en:"Flatbed truck"},
+    desc:{ru:"Для доставки по городу и региону.",tm:"Şäher we sebit boýunça eltip bermek üçin.",en:"For city and regional delivery."},
+    about:{ru:"Бортовой грузовик FAW для доставки по городу и региону. Шасси подходит под разные надстройки.",tm:"Şäher we sebit boýunça eltip bermek üçin FAW bortly ýük awtoulagy. Şassi dürli üstqurmalar üçin laýyk.",en:"A FAW flatbed truck for city and regional delivery. The chassis takes different bodies."},
+    uses:{ru:["Доставка по городу","Региональные перевозки","Надстройки под задачу"],tm:["Şäher içinde eltip bermek","Sebitleýin daşamalar","Işe laýyk üstqurmalar"],en:["Urban delivery","Regional haulage","Bodies built to the job"]}},
+  "dump+tractor": {
+    tag:{ru:"Тягач и самосвал",tm:"Çekiji we öz-özünden düşüriji",en:"Tractor & dump truck"},
+    desc:{ru:"Самосвал для тяжёлых работ и тягач для дальних рейсов.",tm:"Agyr işler üçin öz-özünden düşüriji we uzak ýollar üçin çekiji.",en:"A dump truck for heavy work and a tractor for long haul."},
+    about:{ru:"Модель FAW в двух исполнениях: самосвал для карьеров и стройки и седельный тягач для магистральных перевозок.",tm:"Iki görnüşli FAW modeli: karýerler we gurluşyk üçin öz-özünden düşüriji hem-de magistral daşamalar üçin çekiji.",en:"A FAW model in two versions: a dump truck for quarries and construction, and a tractor unit for highway haulage."},
+    uses:{ru:["Карьеры и стройка","Магистральные перевозки","Сыпучие грузы"],tm:["Karýerler we gurluşyk","Magistral daşamalar","Dökülýän ýükler"],en:["Quarries and construction","Highway haulage","Bulk cargo"]}},
+  "dump+light": {
+    tag:{ru:"Самосвал и бортовой",tm:"Öz-özünden düşüriji we bortly",en:"Dump & flatbed"},
+    desc:{ru:"Самосвал для стройки и бортовой для доставки.",tm:"Gurluşyk üçin öz-özünden düşüriji we eltip bermek üçin bortly.",en:"A dump truck for construction and a flatbed for delivery."},
+    about:{ru:"Модель FAW в двух исполнениях: самосвал для стройки и бортовой грузовик для доставки.",tm:"Iki görnüşli FAW modeli: gurluşyk üçin öz-özünden düşüriji we eltip bermek üçin bortly ýük awtoulagy.",en:"A FAW model in two versions: a dump truck for construction and a flatbed truck for delivery."},
+    uses:{ru:["Строительство","Доставка по городу","Сыпучие грузы"],tm:["Gurluşyk","Şäher içinde eltip bermek","Dökülýän ýükler"],en:["Construction","Urban delivery","Bulk cargo"]}}
+};
+const MODELS = [
+  {name:"JH6", cats:["dump","tractor"], wide:true, imgs:["img/cat/jh6-dump.jpg","img/cat/jh6-dump2.jpg","img/cat/jh6-tractor.jpg"],
+   specs:[["sp_engine","Xichai CA6DM2 / CA6DM3"],["sp_power","420–550 {hp}"],["sp_drive","6x4"]],
+   desc:{ru:"Флагман FAW: самосвал и тягач с высокой кабиной.",tm:"FAW-yň baş modeli: öz-özünden düşüriji we beýik kabinaly çekiji.",en:"The FAW flagship: dump truck and high-cab tractor."},
+   about:{ru:"Флагман FAW Jiefang: самосвал 6x4 для карьеров и стройки и тягач с высокой кабиной с ровным полом для дальних рейсов.",tm:"FAW Jiefang-yň baş modeli: karýerler we gurluşyk üçin 6x4 öz-özünden düşüriji hem-de uzak ýollar üçin beýik, tekiz polly kabinaly çekiji.",en:"The FAW Jiefang flagship: a 6x4 dump truck for quarries and construction, and a tractor with a high-roof, flat-floor cab for long haul."}},
+  {name:"J6P", cats:["dump","tractor"], imgs:["img/cat/j6p-dump.jpg","img/cat/j6p-tractor.jpg"],
+   specs:[["sp_engine","Xichai CA6DM2"],["sp_power","420 {hp}"],["sp_drive","6x4 · 8x4"]],
+   about:{ru:"Проверенная платформа FAW для тяжёлых условий: самосвал и тягач с двигателем Xichai CA6DM2, колёсная формула 6x4 или 8x4.",tm:"Agyr şertler üçin synagdan geçen FAW platformasy: Xichai CA6DM2 hereketlendirijili öz-özünden düşüriji we çekiji, 6x4 ýa-da 8x4 tigir formulasy.",en:"A proven FAW platform for tough conditions: dump truck and tractor with the Xichai CA6DM2 engine, 6x4 or 8x4."}},
+  {name:"Han V", cats:["dump","tractor"], imgs:["img/cat/hanv-dump.jpg","img/cat/hanv-tractor.jpg"]},
+  {name:"New J7", cats:["tractor"], imgs:["img/cat/j7.jpg","img/cat/j7-b.jpg"]},
+  {name:"Ying Hang", cats:["tractor"], imgs:["img/cat/yinghang.jpg","img/cat/yinghang-b.jpg"]},
+  {name:"Ying Tu", cats:["tractor"], imgs:["img/cat/yingtu.jpg"]},
+  {name:"J6V", cats:["tractor"], imgs:["img/cat/j6v.jpg"]},
+  {name:"JM6", cats:["tractor"], imgs:["img/cat/jm6.jpg"]},
+  {name:"VH", cats:["dump","light"], imgs:["img/cat/vh-dump.jpg","img/cat/vh-flatbed.jpg"]},
+  {name:"VN", cats:["dump"], imgs:["img/cat/vn-dump.jpg"]},
+  {name:"Tiger VR", cats:["light"], imgs:["img/cat/tiger-vr.jpg"]},
+  {name:"Tiger VN", cats:["light"], imgs:["img/cat/tiger-vn.jpg"]},
+  {name:"Tiger VH", cats:["light"], imgs:["img/cat/tiger-vh.jpg"]},
+  {name:"Tiger 6G", cats:["light"], imgs:["img/cat/tiger-6g.jpg"],
+   specs:[["sp_engine","FAW DE 3.8 {l}"],["sp_power","160–180 {hp}"],["sp_gvw","9 / 12 {t}"]]},
+  {name:"J6F", cats:["light"], imgs:["img/cat/j6f.jpg"]}
+];
+const typeOf = m => TYPES[m.cats.join("+")];
+const tagOf = m => typeOf(m).tag;
+const descOf = m => (m.desc || typeOf(m).desc);
+const aboutOf = m => (m.about || typeOf(m).about);
+const cardSpecs = m => [["sp_type", tagOf(m)]].concat(m.specs || [["sp_specs", "{onreq}"]]);
+
+const SPECIAL = [
+  ["img/spec/crane.jpg", {ru:"Кран-манипулятор",tm:"Kran-manipulýator",en:"Truck-mounted crane"}],
+  ["img/spec/dump-trailer.jpg", {ru:"Самосвал с прицепом",tm:"Tirkegli öz-özünden düşüriji",en:"Dump truck with trailer"}],
+  ["img/spec/tanker.jpg", {ru:"Автоцистерна",tm:"Awtosisterna",en:"Tanker truck"}],
+  ["img/spec/mixer.jpg", {ru:"Автобетоносмеситель",tm:"Beton garyjy maşyn",en:"Concrete mixer"}],
+  ["img/spec/fridge.jpg", {ru:"Рефрижератор",tm:"Sowadyjyly furgon",en:"Refrigerated truck"}],
+  ["img/spec/snow.jpg", {ru:"Снегоуборочная машина",tm:"Gar arassalaýjy maşyn",en:"Snow plough"}],
+  ["img/spec/van4x4.jpg", {ru:"Фургон 4x4",tm:"Furgon 4x4",en:"4x4 box truck"}],
+  ["img/spec/van.jpg", {ru:"Фургон",tm:"Furgon",en:"Box truck"}],
+  ["img/spec/garbage.jpg", {ru:"Мусоровоз",tm:"Zibil ýygnaýjy maşyn",en:"Refuse truck"}],
+  ["img/spec/mining.jpg", {ru:"Карьерный самосвал",tm:"Karýer öz-özünden düşürijisi",en:"Mining dump truck"}],
+  ["img/spec/garbage-light.jpg", {ru:"Мусоровоз на лёгком шасси",tm:"Ýeňil şassidäki zibil ýygnaýjy",en:"Light refuse truck"}],
+  ["img/spec/aerial.jpg", {ru:"Автовышка",tm:"Awtowyşka",en:"Aerial work platform"}],
+  ["img/spec/aerial-light.jpg", {ru:"Автовышка на лёгком шасси",tm:"Ýeňil şassidäki awtowyşka",en:"Light aerial platform"}],
+  ["img/spec/lowbed.jpg", {ru:"Трал (низкорамная платформа)",tm:"Pes platformaly traly",en:"Low-bed transporter"}],
+  ["img/spec/tip-trailer.jpg", {ru:"Самосвальный прицеп",tm:"Öz-özünden düşüriji tirkeg",en:"Tipping trailer"}],
+  ["img/spec/tow.jpg", {ru:"Эвакуатор",tm:"Ewakuator",en:"Tow truck"}],
+  ["img/spec/vacuum.jpg", {ru:"Вакуумная машина",tm:"Wakuum maşyny",en:"Vacuum truck"}],
+  ["img/spec/grapple.jpg", {ru:"Ломовоз с грейфером",tm:"Greýferli ýük awtoulagy",en:"Grapple truck"}],
+  ["img/spec/tipper.jpg", {ru:"Лёгкий самосвал",tm:"Ýeňil öz-özünden düşüriji",en:"Light tipper"}],
+  ["img/spec/crane-light.jpg", {ru:"Кран-манипулятор на лёгком шасси",tm:"Ýeňil şassidäki kran-manipulýator",en:"Light crane truck"}]
+];
+const slugOf = n => n.toLowerCase().replace(/\s+/g, "-");
+
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const HOVER = matchMedia("(hover: hover)").matches;
+
+/* ===== Truck line drawings ===== */
+function wheel(cx, r){
+  const cy = 129 - r, s = (r * .42).toFixed(1);
+  return `<g class="t-wheel"><circle cx="${cx}" cy="${cy}" r="${r}" class="t-dark"/><circle cx="${cx}" cy="${cy}" r="${(r*.46).toFixed(1)}" class="t-hub"/><path class="t-spoke" d="M${cx-s} ${cy}H${+cx+ +s}M${cx} ${cy-s}V${+cy+ +s}"/></g>`;
+}
+function heavyCab(hi){
+  return (hi ? `<path class="t-body" d="M46 24 Q50 8 66 8 H114 Q123 8 124 18 L125 24 Z"/>` : "") +
+  `<path class="t-body" d="M34 106 V40 Q34 22 52 22 H116 Q124 22 125 30 L128 106 Z"/>
+   <rect class="t-glass" x="86" y="34" width="32" height="24" rx="3"/>
+   <path class="t-glass" d="M36 34 H74 V58 H36 Z" opacity=".55"/>
+   <path class="t-line" d="M80 30 V100"/>
+   <rect class="t-accent" x="35" y="70" width="92" height="6"/>
+   <rect class="t-dark" x="28" y="98" width="20" height="12" rx="2"/>
+   <rect class="t-glass" x="31" y="88" width="10" height="6" rx="1"/>
+   <rect class="t-dark" x="62" y="106" width="16" height="4" rx="1"/>`;
+}
+function lightCab(){
+  return `<path class="t-body" d="M40 108 V58 Q40 44 54 44 H98 Q105 44 106 51 L108 108 Z"/>
+   <rect class="t-glass" x="74" y="54" width="27" height="20" rx="3"/>
+   <path class="t-glass" d="M42 54 H66 V74 H42 Z" opacity=".55"/>
+   <rect class="t-accent" x="41" y="82" width="66" height="5"/>
+   <rect class="t-dark" x="34" y="100" width="16" height="11" rx="2"/>`;
+}
+function truckSVG(type){
+  let p = "";
+  switch(type){
+    case "tractor-hi":
+    case "tractor":
+      p = `<rect class="t-dark" x="40" y="104" width="222" height="8" rx="2"/>
+           <rect class="t-dark" x="194" y="96" width="56" height="8" rx="2"/>
+           <rect class="t-dark" x="131" y="${type==="tractor-hi"?14:24}" width="6" height="${type==="tractor-hi"?72:62}" rx="2"/>
+           <rect class="t-body" x="138" y="98" width="42" height="17" rx="5"/>` +
+          heavyCab(type==="tractor-hi") + wheel(70,16) + wheel(202,16) + wheel(238,16);
+      break;
+    case "dump":
+      p = `<rect class="t-dark" x="40" y="104" width="262" height="8" rx="2"/>
+           <path class="t-body" d="M136 48 L304 38 L304 104 L140 104 Z"/>
+           <path class="t-line" d="M172 46 V104 M206 44 V104 M240 42 V104 M274 40 V104"/>
+           <rect class="t-accent" x="140" y="90" width="164" height="5"/>` +
+          heavyCab(false) + wheel(70,16) + wheel(232,16) + wheel(268,16);
+      break;
+    case "cargo":
+      p = `<rect class="t-dark" x="40" y="104" width="262" height="8" rx="2"/>
+           <rect class="t-body" x="136" y="26" width="168" height="78" rx="3"/>
+           <path class="t-line" d="M136 90 H304 M220 26 V90"/>` +
+          heavyCab(false) + wheel(70,16) + wheel(232,16) + wheel(268,16);
+      break;
+    case "medium":
+      p = `<rect class="t-dark" x="40" y="104" width="250" height="8" rx="2"/>
+           <rect class="t-body" x="136" y="32" width="156" height="72" rx="3"/>
+           <path class="t-line" d="M136 92 H292"/>` +
+          heavyCab(false) + wheel(70,16) + wheel(250,16);
+      break;
+    case "light-box":
+      p = `<rect class="t-dark" x="44" y="105" width="248" height="7" rx="2"/>
+           <rect class="t-body" x="114" y="40" width="180" height="64" rx="3"/>
+           <path class="t-line" d="M114 92 H294 M204 40 V92"/>` +
+          lightCab() + wheel(74,13) + wheel(252,13);
+      break;
+    case "light-van":
+      p = `<rect class="t-dark" x="44" y="105" width="236" height="7" rx="2"/>
+           <rect class="t-body" x="114" y="34" width="168" height="70" rx="6"/>
+           <rect class="t-accent" x="114" y="82" width="168" height="5"/>` +
+          lightCab() + wheel(74,13) + wheel(242,13);
+      break;
+  }
+  return `<svg class="truck" viewBox="0 0 320 140" aria-hidden="true" focusable="false"><line class="t-ground" x1="6" y1="129" x2="314" y2="129"/>${p}</svg>`;
+}
+
+/* ===== Text effects ===== */
+function splitText(el){
+  const words = el.textContent.trim().split(/\s+/);
+  el.innerHTML = words.map((w, i) => `<span class="w"><span style="--i:${i}">${w}</span></span>`).join(" ");
+  el.classList.add("split");
+}
+const SCR = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789";
+function scramble(el){
+  if (REDUCE) return;
+  const final = el.textContent, token = Symbol(); el._scr = token;
+  const len = final.length, dur = 700, t0 = performance.now();
+  const step = now => {
+    if (el._scr !== token) return;
+    const p = Math.min(1, (now - t0) / dur), shown = Math.floor(p * len);
+    el.textContent = final.slice(0, shown) + [...final.slice(shown)].map(c => c === " " ? " " : SCR[(Math.random() * SCR.length) | 0]).join("");
+    if (p < 1) requestAnimationFrame(step); else el.textContent = final;
+  };
+  requestAnimationFrame(step);
+}
+
+/* ===== Rendering ===== */
+let lang = "ru";
+try { const s = localStorage.getItem("faw_lang"); if (s && T.nav_models[s]) lang = s; } catch(e){}
+let filter = "all";
+const tr = k => (T[k] && T[k][lang]) || k;
+const fill = v => (typeof v === "string" ? v : v[lang]).replace(/\{(\w+)\}/g, (_, k) => tr(k));
+
+function renderCards(){
+  document.getElementById("grid").innerHTML = MODELS.map((m, i) => `
+    <article class="card rv photo${m.wide ? " wide" : ""}" data-cats="${m.cats.join(" ")}" style="--d:${(i % 8) * 50}ms">
+      <a class="card-art has-photo" href="#model-${slugOf(m.name)}" tabindex="-1" aria-hidden="true"><img src="${m.imgs[0]}" width="1100" height="540" loading="lazy" alt=""></a>
+      <div class="card-body">
+        <span class="tag">${tagOf(m)[lang]}</span>
+        <h3><a href="#model-${slugOf(m.name)}">${m.name}</a></h3>
+        <p>${descOf(m)[lang]}</p>
+        <dl class="specs">${cardSpecs(m).map(([k, v]) => `<div><dt>${tr(k)}</dt><dd>${fill(v)}</dd></div>`).join("")}</dl>
+        <div class="card-actions">
+          <a class="btn btn-outline" href="#model-${slugOf(m.name)}">${tr("details")}</a>
+          <button class="link-btn" type="button" data-model="${m.name}">${tr("card_btn")}</button>
+        </div>
+      </div>
+    </article>`).join("");
+  applyFilter();
+}
+function renderSpecial(){
+  document.getElementById("specGrid").innerHTML = SPECIAL.map(([src, label]) =>
+    `<button class="sp-tile" type="button" data-special="${label[lang]}"><img src="${src}" width="640" height="480" loading="lazy" alt=""><span>${label[lang]}<small>${tr("card_btn")}</small></span></button>`).join("");
+}
+function renderContacts(){
+  const tels = CONFIG.phones.map(p => `<a href="tel:${telOf(p)}">${p}</a>`);
+  document.getElementById("tbPhones").innerHTML = tels.join("");
+  document.getElementById("cPhones").innerHTML = CONFIG.phones.map(p => `<a class="link" href="tel:${telOf(p)}">${p}</a>`).join("");
+  document.getElementById("tbAddr").textContent = CONFIG.address[lang];
+  document.getElementById("cAddr").textContent = CONFIG.address[lang];
+  document.getElementById("fContacts").innerHTML = tels.join("") + `<span>${CONFIG.address[lang]}</span>`;
+}
+function renderSelect(){
+  const sel = document.getElementById("fModel"), cur = sel.value;
+  sel.innerHTML = MODELS.map(m => `<option value="${m.name}">FAW ${m.name}</option>`).join("") + `<option value="special">${tr("special")}</option><option value="other">${tr("other")}</option>`;
+  if (cur) sel.value = cur;
+}
+function applyFilter(){
+  document.querySelectorAll(".card").forEach(c => { c.hidden = filter !== "all" && !c.dataset.cats.split(" ").includes(filter); });
+  document.querySelectorAll("[data-filter]").forEach(b => b.setAttribute("aria-pressed", b.dataset.filter === filter));
+}
+let current = null;
+const specRows = rows => rows.map(([k, v]) => `<div><dt>${tr(k)}</dt><dd>${fill(v)}</dd></div>`).join("");
+function renderProduct(m){
+  const slug = slugOf(m.name), idx = MODELS.indexOf(m), t = typeOf(m);
+  const others = [1, 2, 3].map(k => MODELS[(idx + k) % MODELS.length]);
+  document.getElementById("productInner").innerHTML = `
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="#top">${tr("crumb_home")}</a><span>/</span><a href="#models">${tr("nav_models")}</a><span>/</span><span aria-current="page">FAW ${m.name}</span></nav>
+    <div class="p-grid">
+      <div>
+        <figure class="p-img"><img id="pMain" src="${m.imgs[0]}" width="1100" height="540" alt="FAW ${m.name}"></figure>
+        ${m.imgs.length > 1 ? `<div class="p-thumbs">${m.imgs.map((s, i) => `<button type="button" data-src="${s}" aria-pressed="${i === 0}" aria-label="${i + 1}"><img src="${s}" width="1100" height="540" alt=""></button>`).join("")}</div>` : ""}
+      </div>
+      <div class="p-info">
+        <span class="tag">${tagOf(m)[lang]}</span>
+        <h1>FAW ${m.name}</h1>
+        <p class="lead">${aboutOf(m)[lang]}</p>
+        <dl class="specs">${specRows(cardSpecs(m))}</dl>
+        <p class="p-note">${tr("models_sub")}</p>
+        <div class="p-actions">
+          <button class="btn btn-primary" type="button" data-model="${m.name}">${tr("card_btn")}</button>
+          <a class="btn btn-outline" href="tel:${telOf(CONFIG.phones[0])}">${tr("call")}: ${CONFIG.phones[0]}</a>
+        </div>
+      </div>
+    </div>
+    <div class="p-sec">
+      <h2>${tr("p_uses")}</h2>
+      <div class="uses">${t.uses[lang].map((u, i) => `<div class="use"><b>0${i + 1}</b><span>${u}</span></div>`).join("")}</div>
+    </div>
+    <div class="p-sec">
+      <h2>${tr("p_others")}</h2>
+      <div class="others">${others.map(o => `<a class="mini" href="#model-${slugOf(o.name)}"><img src="${o.imgs[0]}" width="1100" height="540" loading="lazy" alt=""><div><span class="tag">${tagOf(o)[lang]}</span><h3>FAW ${o.name}</h3></div></a>`).join("")}</div>
+    </div>`;
+  document.title = `FAW ${m.name} — Shanly Kerven`;
+}
+function route(){
+  const hash = location.hash.slice(1), home = document.getElementById("home"), prod = document.getElementById("product");
+  const m = hash.startsWith("model-") ? MODELS.find(x => "model-" + slugOf(x.name) === hash) : null;
+  if (m) {
+    current = m; renderProduct(m);
+    home.hidden = true; prod.hidden = false;
+    window.scrollTo({ top: 0, behavior: "instant" });
+    return;
+  }
+  const wasProduct = !prod.hidden;
+  current = null; prod.hidden = true; home.hidden = false; document.title = "FAW Trucks Turkmenistan";
+  if (wasProduct) {
+    const el = hash && document.getElementById(hash);
+    requestAnimationFrame(() => el ? el.scrollIntoView({ behavior: "instant" }) : window.scrollTo({ top: 0, behavior: "instant" }));
+  }
+}
+addEventListener("hashchange", route);
+
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l === "tm" ? "tk" : l;
+  document.querySelectorAll("[data-i18n]").forEach(el => { el._scr = null; el.textContent = tr(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = tr(el.dataset.i18nPh); });
+  document.querySelectorAll("[data-i18n-alt]").forEach(el => { el.alt = tr(el.dataset.i18nAlt); });
+  document.querySelectorAll("[data-split]").forEach(splitText);
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l));
+  document.getElementById("formMsg").textContent = "";
+  renderCards(); renderSpecial(); renderContacts(); renderSelect();
+  if (current) renderProduct(current);
+  try { localStorage.setItem("faw_lang", l); } catch(e){}
+}
+
+/* ===== Init ===== */
+document.getElementById("year").textContent = new Date().getFullYear();
+setLang(lang);
+route();
+
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => {
+  const revealed = [...document.querySelectorAll("[data-split]")].map(el => el.classList.contains("in"));
+  setLang(b.dataset.lang);
+  document.querySelectorAll("[data-split]").forEach((el, i) => { if (revealed[i]) el.classList.add("in"); });
+}));
+document.querySelectorAll("[data-filter]").forEach(b => b.addEventListener("click", () => { filter = b.dataset.filter; applyFilter(); }));
+document.addEventListener("click", e => {
+  const th = e.target.closest(".p-thumbs button");
+  if (th) {
+    document.getElementById("pMain").src = th.dataset.src;
+    th.parentElement.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === th));
+    return;
+  }
+  const sp = e.target.closest("[data-special]");
+  if (sp) {
+    document.getElementById("fModel").value = "special";
+    document.getElementById("fMsg").value = sp.dataset.special;
+    document.getElementById("contact").scrollIntoView();
+    setTimeout(() => document.getElementById("fName").focus({preventScroll:true}), 450);
+    return;
+  }
+  const b = e.target.closest("[data-model]"); if (!b) return;
+  document.getElementById("fModel").value = b.dataset.model;
+  document.getElementById("contact").scrollIntoView();
+  setTimeout(() => document.getElementById("fName").focus({preventScroll:true}), 450);
+});
+const nav = document.getElementById("nav"), menuBtn = document.getElementById("menuBtn");
+menuBtn.addEventListener("click", () => { const o = nav.classList.toggle("open"); menuBtn.setAttribute("aria-expanded", o); });
+nav.addEventListener("click", e => { if (e.target.tagName === "A") { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); } });
+
+/* Reveal + H2 split + eyebrow scramble: only what starts below the fold waits for scroll */
+(() => {
+  const vh = innerHeight;
+  const below = el => el.getBoundingClientRect().top > vh * .92;
+  const hero = document.getElementById("heroTitle");
+  requestAnimationFrame(() => hero.classList.add("in"));
+  scramble(document.querySelector(".hero .eyebrow"));
+  if (!("IntersectionObserver" in window) || REDUCE) { document.querySelectorAll("[data-split]").forEach(el => el.classList.add("in")); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const t = e.target;
+    t.classList.remove("rv-pending");
+    t.querySelectorAll("[data-split]").forEach(s => s.classList.add("in"));
+    if (t.matches("[data-split]")) t.classList.add("in");
+    t.querySelectorAll("[data-scramble]").forEach(scramble);
+    io.unobserve(t);
+  }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".rv").forEach(el => {
+    if (below(el)) { el.classList.add("rv-pending"); io.observe(el); }
+    else { el.querySelectorAll("[data-split]").forEach(s => s.classList.add("in")); }
+  });
+})();
+
+/* Count-up */
+(() => {
+  const nums = document.querySelectorAll("[data-count]");
+  if (REDUCE) return;
+  const run = el => {
+    const end = +el.dataset.count, suf = el.dataset.suffix || "", t0 = performance.now(), dur = 1400;
+    const step = now => { const p = Math.min(1, (now - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3))); el.textContent = v + suf; if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: .6 });
+  nums.forEach(n => io.observe(n));
+})();
+
+/* Banner slider */
+(() => {
+  const slides = [...document.querySelectorAll(".slide")], dots = [...document.querySelectorAll("#dots button")];
+  let cur = 0, timer = null;
+  const go = i => {
+    slides[cur].classList.remove("is-active"); dots[cur].removeAttribute("aria-current");
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add("is-active"); dots[cur].setAttribute("aria-current", "true");
+  };
+  const start = () => { if (REDUCE) return; clearInterval(timer); timer = setInterval(() => go(cur + 1), 5500); };
+  document.getElementById("slPrev").addEventListener("click", () => { go(cur - 1); start(); });
+  document.getElementById("slNext").addEventListener("click", () => { go(cur + 1); start(); });
+  dots.forEach((d, i) => d.addEventListener("click", () => { go(i); start(); }));
+  const box = document.getElementById("slides"); let x0 = null;
+  box.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
+  box.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) { go(cur + (dx < 0 ? 1 : -1)); start(); } x0 = null; });
+  start();
+})();
+
+/* Scroll: progress bar, header state, banner parallax */
+(() => {
+  const bar = document.getElementById("progress"), header = document.getElementById("header");
+  const inner = document.getElementById("slidesInner"), box = document.getElementById("slides");
+  let ticking = false;
+  const update = () => {
+    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+    header.classList.toggle("scrolled", y > 10);
+    if (!REDUCE && y < box.offsetHeight + 200) inner.style.transform = `translate3d(0,${(y * .3).toFixed(1)}px,0)`;
+    ticking = false;
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, {passive:true});
+  update();
+})();
+
+/* Magnet CTAs */
+(() => {
+  if (!HOVER || REDUCE) return;
+  document.querySelectorAll(".magnet").forEach(el => {
+    let raf = 0;
+    el.addEventListener("pointermove", e => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = el.getBoundingClientRect();
+        el.style.transform = `translate(${((e.clientX - r.left - r.width / 2) * .25).toFixed(1)}px,${((e.clientY - r.top - r.height / 2) * .25).toFixed(1)}px)`;
+      });
+    });
+    el.addEventListener("pointerleave", () => { cancelAnimationFrame(raf); el.style.transform = ""; });
+  });
+})();
+
+/* Spotlight cards */
+(() => {
+  if (!HOVER) return;
+  const grid = document.getElementById("grid"); let raf = 0;
+  grid.addEventListener("pointermove", e => {
+    const card = e.target.closest(".card"); if (!card) return;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    });
+  });
+})();
+
+/* Road-light streaks (hero background) */
+(() => {
+  const cv = document.getElementById("roads"), ctx = cv.getContext("2d");
+  const css = getComputedStyle(document.documentElement);
+  const blue = css.getPropertyValue("--accent-bright-rgb").trim(), white = css.getPropertyValue("--on-dark-rgb").trim();
+  let w = 0, h = 0, dpr = 1, streaks = [], running = false, last = 0;
+  const N = () => innerWidth < 640 ? 16 : 40;
+  const make = (anywhere) => ({
+    x: anywhere ? Math.random() * w : -200 - Math.random() * w * .5,
+    y: Math.pow(Math.random(), 1.6) * h,
+    len: 60 + Math.random() * 220, sp: 120 + Math.random() * 420,
+    a: .10 + Math.random() * .35, lw: Math.random() < .2 ? 2 : 1,
+    c: Math.random() < .72 ? blue : white
+  });
+  const resize = () => {
+    const r = cv.getBoundingClientRect(); dpr = Math.min(devicePixelRatio || 1, 2);
+    w = r.width; h = r.height; cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    streaks = Array.from({length: N()}, () => make(true));
+  };
+  const draw = (dt) => {
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = "lighter";
+    for (const s of streaks) {
+      s.x += s.sp * dt;
+      if (s.x - s.len > w) Object.assign(s, make(false));
+      const g = ctx.createLinearGradient(s.x - s.len, 0, s.x, 0);
+      g.addColorStop(0, `rgba(${s.c},0)`); g.addColorStop(1, `rgba(${s.c},${s.a})`);
+      ctx.strokeStyle = g; ctx.lineWidth = s.lw;
+      ctx.beginPath(); ctx.moveTo(s.x - s.len, s.y); ctx.lineTo(s.x, s.y); ctx.stroke();
+    }
+    ctx.globalCompositeOperation = "source-over";
+  };
+  const loop = (now) => { if (!running) return; const dt = Math.min(.05, (now - last) / 1000); last = now; draw(dt); requestAnimationFrame(loop); };
+  const play = () => { if (running || REDUCE) return; running = true; last = performance.now(); requestAnimationFrame(loop); };
+  const pause = () => { running = false; };
+  resize(); draw(0);
+  addEventListener("resize", () => { resize(); draw(0); });
+  if (REDUCE) return;
+  let visible = true;
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; visible && !document.hidden ? play() : pause(); }).observe(cv);
+  document.addEventListener("visibilitychange", () => { document.hidden ? pause() : (visible && play()); });
+})();
+
+/* Form */
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target, msg = document.getElementById("formMsg");
+  const name = f.name.value.trim(), phone = f.phone.value.trim();
+  f.name.setAttribute("aria-invalid", !name); f.phone.setAttribute("aria-invalid", !phone);
+  if (!name || !phone) { msg.className = "form-msg err"; msg.textContent = tr("err"); (name ? f.phone : f.name).focus(); return; }
+  const model = f.model.value === "other" ? tr("other") : f.model.value === "special" ? tr("special") : "FAW " + f.model.value;
+  const text = `${tr("wa_head")}\n${tr("l_name")}: ${name}\n${tr("l_phone")}: ${phone}\n${tr("l_model")}: ${model}` + (f.msg.value.trim() ? `\n${tr("l_msg")}: ${f.msg.value.trim()}` : "");
+  const a = document.createElement("a");
+  a.href = `sms:${telOf(CONFIG.phones[0])}?&body=${encodeURIComponent(text)}`;
+  document.body.appendChild(a); a.click(); a.remove();
+  msg.className = "form-msg ok"; msg.textContent = `${tr("ok")} ${CONFIG.phones.join(", ")}`;
+});
+</script>
+</body>
+</html>
